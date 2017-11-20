@@ -1,24 +1,12 @@
 const passport = require('passport');
 const User = require('../models/User');
 const LocalStrategy = require("passport-local").Strategy;
+const flash = require("connect-flash");
 const bcrypt = require('bcrypt');
 
-// hemos añadido (app)--------------------------
 module.exports = (app)=> {
 // Creemos que hace falta el flash
-//app.use(flash());
-  passport.serializeUser((user, cb) => {
-    cb(null, user.id);
-  });
-
-  passport.deserializeUser((id, cb) => {
-    User.findById(id, (err, user) => {
-      if (err) {
-        return cb(err);
-      }
-      cb(null, user);
-    });
-  });
+  app.use(flash());
 
   passport.use('local-signup', new LocalStrategy({
       passReqToCallback: true
@@ -41,14 +29,16 @@ module.exports = (app)=> {
               username,
               name,
               password,
-              role
+              mail,
+              address
             } = req.body;
             const hashPass = bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
             const newUser = new User({
               username,
               name,
-              role,
-              password: hashPass
+              mail,
+              password: hashPass,
+              address
             });
 
             newUser.save((err) => {
@@ -84,6 +74,18 @@ module.exports = (app)=> {
     });
   }));
 
+  passport.serializeUser((user, cb) => {
+    cb(null, user.id);
+  });
+
+  passport.deserializeUser((id, cb) => {
+    User.findById(id, (err, user) => {
+      if (err) {
+        return cb(err);
+      }
+      cb(null, user);
+    });
+  });
 };
 
 
