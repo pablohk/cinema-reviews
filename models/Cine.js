@@ -1,10 +1,14 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.schema();
+const Schema = mongoose.Schema;
 const SERV = require('./services');
 
 const cineSchema = new Schema ({
   name: {type : String},
-  address: {type : String},
+  address:{
+        province :{type: String},
+        town :{type: String},
+        street :{type: String}
+      },
   url: {type : String},
   services : {type: String, enum : SERV},
   openingHours: {type: String},
@@ -19,4 +23,6 @@ const cineSchema = new Schema ({
     timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
 });
 
-module.exports = mongoose.model("Cine".cineSchema);
+const Cine = mongoose.model('Cine',cineSchema);
+
+module.exports = Cine;

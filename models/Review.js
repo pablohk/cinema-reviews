@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.schema();
+const Schema = mongoose.Schema;
 
 const reviewSchema = new Schema ({
   comment: {type : String},
@@ -11,5 +11,6 @@ const reviewSchema = new Schema ({
     timestamps: { createdAt: "created_at", updatedAt: "updated_at" },
 });
 
+const Review = mongoose.model('Review',reviewSchema);
 
-module.exports = mongoose.model('Review', reviewSchema);
+module.exports = Review;

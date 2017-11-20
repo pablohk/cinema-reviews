@@ -9,6 +9,7 @@ const SERV = require('../models/services');
 
 mongoose.connect("mongodb://localhost/cinema-reviews");
 
+// cine seed
 const cine = [
   {
     name : 'DEHESA CUADERNILLOS',
@@ -386,6 +387,7 @@ const cine = [
   }
 ];
 
+// theaters seed
 const theaters = [
   {
     name: 'ARTE&DESMAYO',
@@ -445,11 +447,13 @@ const theaters = [
   },
 ];
 
+// drop all collections
 User.collection.drop();
 Cine.collection.drop();
 Theater.collection.drop();
 Review.collection.drop();
 
+// add cine to BBDD
 Cine.create(cine, (err, item)=>{
   if (err) { throw err; }
     item.forEach( (e) => {
@@ -458,6 +462,7 @@ Cine.create(cine, (err, item)=>{
     mongoose.connection.close();
 });
 
+// add theater to BBDD
 Theater.create(theaters, (err, item)=>{
   if (err) { throw err; }
     item.forEach( (e) => {
