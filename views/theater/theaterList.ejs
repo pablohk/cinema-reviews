@@ -1,0 +1,12 @@
+<h2> Theater List<h2>
+  <% if(typeof(items) !== 'undefined'){
+    items.forEach(e =>{%>
+      <div> <a href="/theater/<%=e._id%>/detail"><%=e.name%></a></div>
+      <div> <%=e.address.street%></div>
+      <div> <%=e.phone%></div>
+    <%});%>
+  <%}else{%>
+    <% if ((message) !== "undefined") { %>
+    <div class="error-message"><%= message%></div>
+    <% }
+  }%>

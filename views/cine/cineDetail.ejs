@@ -1,0 +1,24 @@
+<h2> Cine detail<h2>
+  <% if(typeof(item) !== 'undefined'){%>
+      <div> <%=item.name%></div>
+      <div>
+        <p><%=item.address.province%></p>
+        <p><%=item.address.town%></p>
+        <p><%=item.address.street%></p>
+      </div>
+      <div><%=item.phone%></div>
+      <div><%=item.phone%></div>
+      <div><%=item.services%></div>
+      <div><%=item.openingHours%></div>
+      <div><%=item.price%></div>
+      <div><%=item.phone%></div>
+      <div><a href='///<%=item.url%>'><%=item.url%></a></div>
+      <div>
+        <p><%=item.rooms.number%></p>
+        <p><%=item.rooms.seating%></p>
+      </div>
+  <%} else{%>
+    <% if ((message) !== "undefined") { %>
+    <div class="error-message"><%= message%></div>
+    <% }
+  }%>
