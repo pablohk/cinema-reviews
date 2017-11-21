@@ -5,11 +5,11 @@ const passport =require ("passport");
 const {ensureLoggedIn, ensureLoggedOut}= require('connect-ensure-login');
 
 
-router.get('/home',ensureLoggedIn('/'), (req,res,next)=>{
+router.get('/home',ensureLoggedIn('/user/login'), (req,res,next)=>{
   res.render('user/home');
 });
 
-router.get('/login', (req, res, next)=> {
+router.get('/login', ensureLoggedOut(),(req, res, next)=> {
   res.render('user/login', {message: req.flash("error")});
 });
 
