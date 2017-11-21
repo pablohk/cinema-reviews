@@ -19,13 +19,14 @@ router.post('/login', passport.authenticate('local-login', {
 }));
 
 router.get('/signup',ensureLoggedOut('/'), (req,res, next) => {
+  console.log('---entro en /get/signup');
   res.render('user/signup');
 });
 
 router.post('/signup', passport.authenticate('local-signup', {
   successRedirect : '/user/login',
   failureRedirect : '/user/signup',
-   failureFlash: true
+  failureFlash: true
 }));
 
 router.get('/logout', ensureLoggedIn('/'), (req,res)=>{

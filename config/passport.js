@@ -53,13 +53,8 @@ module.exports = (app)=> {
     }));
 
   passport.use('local-login', new LocalStrategy((username, password, next) => {
-    User.findOne({
-      username
-    }, (err, user) => {
-      if (err) {
-
-        return next(err);
-      }
+    User.findOne({ username}, (err, user) => {
+      if (err) {return next(err);}
       if (!user) {
         return next(null, false, {
           errorMessage: "Incorrect username"
