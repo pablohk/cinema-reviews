@@ -7,7 +7,7 @@ const Theater = require('../models/Theater');
 const Review = require ('../models/Review');
 const SERV = require('../models/services');
 
-mongoose.connect("mongodb://localhost/cinema-reviews");
+mongoose.connect("mongodb://localhost/cinema-reviews",{useMongoClient: true});
 
 // cine seed
 const cine = [
@@ -447,21 +447,21 @@ const theaters = [
   },
 ];
 
-// drop all collections
-User.collection.drop();
-Cine.collection.drop();
+// // drop all collections
+// User.collection.drop();
+// Cine.collection.drop();
 Theater.collection.drop();
 Review.collection.drop();
-
+//
 // add cine to BBDD
-Cine.create(cine, (err, item)=>{
-  if (err) { throw err; }
-    item.forEach( (e) => {
-      console.log(e.name);
-    });
-    mongoose.connection.close();
-});
-
+// Cine.create(cine, (err, item)=>{
+//   if (err) { throw err; }
+//     item.forEach( (e) => {
+//       console.log(e.name);
+//     });
+//     mongoose.connection.close();
+// });
+//
 // add theater to BBDD
 Theater.create(theaters, (err, item)=>{
   if (err) { throw err; }
