@@ -14,15 +14,14 @@ module.exports = (app)=> {
   });
 
   passport.deserializeUser((id, cb) => {
-    User.findOne({ "_id": id }, (err, user) => {
+    User.findById(id, (err, user) => {
       if (err) { return cb(err); }
       cb(null, user);
     });
   });
 
-  passport.use('local-signup', new LocalStrategy({
-      passReqToCallback: true
-    },
+  passport.use('local-signup', new LocalStrategy(
+      {passReqToCallback: true},
     (req, username, password, next) => {
       // To avoid race conditions
       process.nextTick(() => {
@@ -38,6 +37,7 @@ module.exports = (app)=> {
               mail,
               address
             } = req.body;
+
             const hashPass = bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
             const newUser = new User({
               username,
@@ -47,11 +47,12 @@ module.exports = (app)=> {
               address,
               role:ROLE[0]
             });
-
+            console.log(newUser);
             newUser.save((err) => {
               if (err) {
                 next(err);
               }
+              console.log('-------1');
               return next(null, newUser);
             });
           }
