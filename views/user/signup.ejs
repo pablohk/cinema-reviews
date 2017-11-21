@@ -4,19 +4,19 @@
       <form action="/user/signup" method="post">
         <div class="form-group">
           <label for="username">Username</label>
-          <input type="text" name="username" class="form-control">
+          <input type="text" name="username" class="form-control" required="require">
         </div>
         <div class="form-group">
           <label for="name">name</label>
-          <input type="text" name="name" class="form-control">
+          <input type="text" name="name" class="form-control" required="require">
         </div>
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" name="password" class="form-control">
+          <input type="password" name="password" class="form-control" required="require">
         </div>
         <div class="form-group">
           <label for="name">mail</label>
-          <input type="email" name="mail" class="form-control">
+          <input type="email" name="mail" class="form-control" required="require">
         </div>
         <div class="form-group">
           <label for="addres">address</label>
@@ -27,7 +27,7 @@
       </form>
     </div>
   </div>
-  <% if (typeof(errorMessage) !== "undefined") { %>
-<div class="error-message"><%= errorMessage %></div>
-<% } %>
+  <% if ((message) !== "undefined") { %>
+  <div class="error-message"><%= message%></div>
+  <% } %>
 </div>

@@ -1,0 +1,19 @@
+<h2> Theater detail<h2>
+  <% if(typeof(item) !== 'undefined'){%>
+      <div> <%=item.name%></div>
+      <div>
+        <p><%=item.address.province%></p>
+        <p><%=item.address.town%></p>
+        <p><%=item.address.street%></p>
+      </div>
+      <div><%=item.services%></div>
+      <div><%=item.openingHours%></div>
+      <div><%=item.price%></div>
+      <div><%=item.phone%></div>
+      <div><a href='///<%=item.url%>'><%=item.url%></a></div>
+      <div><%=item.seating%></div>
+  <%} else{%>
+    <% if ((message) !== "undefined") { %>
+    <div class="error-message"><%= message%></div>
+    <% }
+  }%>
