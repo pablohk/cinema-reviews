@@ -6,3 +6,12 @@ body {
 a {
   color: #00B7FF;
 }
+
+.bckimg {
+background: url('../img/backgroundimg') no-repeat center center fixed;
+opacity : 0.8;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}
