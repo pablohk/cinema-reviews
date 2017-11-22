@@ -3,4 +3,9 @@
 <p>Comment: <%=rev.comment%></p>
 <p>Rating: <%=rev.rating%></p>
 <p>Author: <%=rev._user_id.username%></p>
+<% if (rev._cine_id){%>
 <p>Cine name: <%=rev._cine_id.name%></p>
+<%}%>
+<% if (rev._theater_id){%>
+<p>Theater name: <%=rev._theater_id.name%></p>
+<%}%>
