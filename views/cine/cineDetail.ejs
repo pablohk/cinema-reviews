@@ -3,8 +3,8 @@
       <div> <%=item.name%></div>
       <div>
         <p><%=item.address.province%></p>
-        <p><%=item.address.town%></p>
-        <p><%=item.address.street%></p>
+        <p id ="town"><%=item.address.town%></p>
+        <p id ="address"><%=item.address.street%></p>
       </div>
       <div><%=item.phone%></div>
       <div><%=item.phone%></div>
@@ -20,8 +20,20 @@
       <div>
         <a href="/review/newRevCine/<%=item._id%>">Comment this Cine</a>
       </div>
+      <div id="map-canvas"></div>
   <%} else{%>
     <% if ((message) !== "undefined") { %>
     <div class="error-message"><%= message%></div>
     <% }
   }%>
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATcrZguog9myO_vE147fsy0mTVd-qi4RU"></script>
+<script type="text/javascript" src="/js/map.js"></script>
+
+<!-- google maps api -->
+
+<!-- AIzaSyAaDOMBPrVAk6syCIRaDS_BAeTl9mi6QyE -->
+<!-- google geocoding api -->
+<!-- AIzaSyAKfEVXt2tSS-6V8QZUUjDM1GVnGfeeR6U -->
+<!-- google places api -->
+<!-- AIzaSyATcrZguog9myO_vE147fsy0mTVd-qi4RU -->

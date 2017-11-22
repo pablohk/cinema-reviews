@@ -15,3 +15,15 @@ opacity : 0.8;
 -o-background-size: cover;
 background-size: cover;
 }
+
+#map-canvas {
+  width: 30%;
+  height: 400px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-left: 50%;
+}
+
+#map-canvas img {
+  max-width: none !important;
+}
