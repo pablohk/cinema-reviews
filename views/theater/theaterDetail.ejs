@@ -12,6 +12,9 @@
       <div><%=item.phone%></div>
       <div><a href='///<%=item.url%>'><%=item.url%></a></div>
       <div><%=item.seating%></div>
+      <div>
+        <a href="/review/newRevTheater/<%=item._id%>">Comment this Theater</a>
+      </div>
   <%} else{%>
     <% if ((message) !== "undefined") { %>
     <div class="error-message"><%= message%></div>

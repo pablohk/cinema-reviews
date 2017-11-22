@@ -17,6 +17,9 @@
         <p><%=item.rooms.number%></p>
         <p><%=item.rooms.seating%></p>
       </div>
+      <div>
+        <a href="/review/newRevCine/<%=item._id%>">Comment this Cine</a>
+      </div>
   <%} else{%>
     <% if ((message) !== "undefined") { %>
     <div class="error-message"><%= message%></div>
