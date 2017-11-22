@@ -95,19 +95,15 @@ router.post('/newRevTheater/:id',[EnsureLoggedIn.EnsureLoggedIn,EnsureOwnerRevie
 });
 
 
-
-
-
-
-// router.get('/:id', (req, res) => {
-//   Review.findById(req.params.id)
-//           .populate('_user_id')
-//           .then( rev => {
-//             console.log(rev);
-//             res.render('review/reviewIndex',{rev});
-//           })
-//           .catch(e => next(e));
-//   });
+router.get('/listByUser', (req, res) => {
+    Review.find({'_user_id':{$eq: req.user._id}})
+          .populate('_user_id')
+          .then( rev => {
+            console.log(rev);
+            res.render('review/listByUser',{items:rev});
+          })
+          .catch(e => next(e));
+  });
 
 
 module.exports = router;
