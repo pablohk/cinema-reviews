@@ -481,7 +481,7 @@ Theater.create(theaters)
 //       console.log(e.name);
 //     });
 //     mongoose.connection.close();
-// });
+// 
 //
 // add theater to BBDD
 // Theater.create(theaters, (err, item)=>{
