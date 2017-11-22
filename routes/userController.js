@@ -9,7 +9,7 @@ router.get('/home',ensureLoggedIn('/user/login'), (req,res,next)=>{
   res.render('user/home');
 });
 
-router.get('/login', ensureLoggedOut(),(req, res, next)=> {
+router.get('/login', ensureLoggedOut('/user/home'),(req, res, next)=> {
   res.render('user/login', {message: req.flash("error")});
 });
 
@@ -20,7 +20,7 @@ router.post('/login', passport.authenticate('local-login', {
   passReqToCallback: true
 }));
 
-router.get('/signup',ensureLoggedOut('/'), (req,res, next) => {
+router.get('/signup',ensureLoggedOut('/user/home'), (req,res, next) => {
   res.render('user/signup', {message: req.flash("error")});
 });
 
@@ -31,7 +31,7 @@ router.post('/signup', passport.authenticate('local-signup', {
   passReqToCallback: true
 }));
 
-router.get('/logout', ensureLoggedIn('/'), (req,res)=>{
+router.get('/logout', ensureLoggedIn('/user/login'), (req,res)=>{
   req.logout();
   res.redirect('/');
 });
