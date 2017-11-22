@@ -1,4 +1,4 @@
-<h2> List all reviews of user ...</h2>
+<h2> List all reviews of username: <%=user.username%>.</h2>
 
 <%items.forEach( e=>{%>
 <div>User: <%=e._user_id.username%></div>
@@ -10,4 +10,8 @@
   <%}%>
   <div>Comment : <%=e.comment%></div>
   <div>Rating : <%=e.rating%></div>
+  <div>
+    <a href="/review/edit/<%=e._id%>"><button>Edit</button></a>
+    <a href="/review/delete/<%=e._id%>"><button>Delete</button></a>
+  </div>
   <%});%>
