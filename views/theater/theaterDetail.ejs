@@ -3,8 +3,8 @@
       <div> <%=item.name%></div>
       <div>
         <p><%=item.address.province%></p>
-        <p><%=item.address.town%></p>
-        <p><%=item.address.street%></p>
+        <p id ="town"><%=item.address.town%></p>
+        <p id ="address"><%=item.address.street%></p>
       </div>
       <div><%=item.services%></div>
       <div><%=item.openingHours%></div>
@@ -15,8 +15,12 @@
       <div>
         <a href="/review/newRevTheater/<%=item._id%>">Comment this Theater</a>
       </div>
+      <div id="map-canvas"></div>
   <%} else{%>
     <% if ((message) !== "undefined") { %>
     <div class="error-message"><%= message%></div>
     <% }
   }%>
+  <!-- <div id="map-canvas"></div> -->
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaDOMBPrVAk6syCIRaDS_BAeTl9mi6QyE"></script>
+  <script type="text/javascript" src="/js/map.js"></script>
