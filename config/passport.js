@@ -26,8 +26,12 @@ module.exports = (app)=> {
       // To avoid race conditions
       process.nextTick(() => {
         User.findOne({'username': username}, (err, user) => {
-          if (err) {return next(err);}
-          if (user) {return next(null, false);
+          if (err) {
+            console.log('-----1');
+            return next(err);}
+          if (user) {
+            console.log('-----2');
+            return next(null, false);
           } else {
             // Destructure the body
             const {
@@ -47,12 +51,14 @@ module.exports = (app)=> {
               address,
               role:ROLE[0]
             });
+            console.log('-----3');
             console.log(newUser);
             newUser.save((err) => {
               if (err) {
+                console.log('-----4');
                 next(err);
               }
-              console.log('-------1');
+              console.log('-------5');
               return next(null, newUser);
             });
           }
