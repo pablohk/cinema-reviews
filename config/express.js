@@ -21,7 +21,7 @@ module.exports = (app) => {
 
   app.use(session({
     secret: 'Okay, proyect-2 alvaro&Pablo',
-    resave: false,
+    resave: true,
     saveUninitialized: true,
     store: new MongoStore({mongooseConnection: mongoose.connection})
   }));
