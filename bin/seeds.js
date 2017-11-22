@@ -447,12 +447,33 @@ const theaters = [
   },
 ];
 
-// // drop all collections
-// User.collection.drop();
-// Cine.collection.drop();
+//drop all collections
+User.collection.drop();
+Cine.collection.drop();
 Theater.collection.drop();
 Review.collection.drop();
-//
+
+Cine.create(cine)
+.then((c)=>{
+  c.forEach( e=>{
+    console.log(e.name);});
+    })
+.catch( (e)=>{next(e);});
+
+console.log('----------------------------');
+
+Theater.create(theaters)
+.then((t)=>{
+  t.forEach( e=>{
+    mongoose.connection.close();
+    console.log(e.name);});
+  })
+.catch( (e)=>{next(e);});
+
+
+
+
+
 // add cine to BBDD
 // Cine.create(cine, (err, item)=>{
 //   if (err) { throw err; }
@@ -463,10 +484,10 @@ Review.collection.drop();
 // });
 //
 // add theater to BBDD
-Theater.create(theaters, (err, item)=>{
-  if (err) { throw err; }
-    item.forEach( (e) => {
-      console.log(e.name);
-    });
-    mongoose.connection.close();
-});
+// Theater.create(theaters, (err, item)=>{
+//   if (err) { throw err; }
+//     item.forEach( (e) => {
+//       console.log(e.name);
+//     });
+//     mongoose.connection.close();
+// });
