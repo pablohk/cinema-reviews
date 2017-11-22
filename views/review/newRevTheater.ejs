@@ -1,8 +1,8 @@
-<h2>new Review</h2>
-<form action="/review/newRevCine/<%=cineId%>" method="post">
+<h2>new Review Theater</h2>
+<form action="/review/newRevTheater/<%=theaterId%>" method="post">
   <label for="comment">comment</label>
   <input type="text" id="comment" name="comment" required="require"/>
   <label for="rating">rating</label>
-  <input type="number" id="rating" name="rating" mmin='0' max='5'/>
+  <input type="number" id="rating" name="rating" min='0' max='5'/>
   <button type="submit">New</button>
 </form>
