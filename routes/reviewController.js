@@ -88,9 +88,7 @@ router.get('/listByUser', (req, res) => {
           .then( rev => {
             res.render('review/listByUser',{items:rev});
           })
-          .catch(e =>
-            {
-              next(e);});
+          .catch(e =>{next(e);});
   });
 
 
