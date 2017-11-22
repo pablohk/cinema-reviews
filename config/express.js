@@ -1,3 +1,4 @@
+require('dotenv').config();
 const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
@@ -10,7 +11,7 @@ const passport = require('passport');
 module.exports = (app) => {
 
   // Mongoose configuration
-  const dbURL = "mongodb://localhost/cinema-reviews";
+  const dbURL = process.env.dbURL;
   mongoose.connect(dbURL, {useMongoClient: true})
     .then(() => {debug(`Conected to ${dbURL}`);});
 
