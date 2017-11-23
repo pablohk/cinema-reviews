@@ -1,12 +1,31 @@
-<h2> Theater List<h2>
-  <% if(typeof(items) !== 'undefined'){
-    items.forEach(e =>{%>
-      <div> <a href="/theater/<%=e._id%>/detail"><%=e.name%></a></div>
-      <div> <%=e.address.street%></div>
-      <div> <%=e.phone%></div>
-    <%});%>
-  <%}else{%>
-    <% if ((message) !== "undefined") { %>
-    <div class="error-message"><%= message%></div>
-    <% }
-  }%>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1" id="logout">
+            <ul class="media-list">
+              <% if(typeof(items) !== 'undefined'){
+                items.forEach(e =>{%>
+              <li class="media">
+                <a class="pull-left" href="/theater/<%=e._id%>/detail">
+                  <img class="media-object img-circle" id="img-list" src="/img/teatro.png" alt="profile">
+                </a>
+                <div class="media-body">
+                  <div class="well well-lg">
+                    <h4 class="media-heading text-uppercase reviews"><%=e.name%> </h4>
+                    <ul class="media-date text-uppercase reviews list-inline">
+                      <li class="dd"><%=e.phone%></li>
+                    </ul>
+                    <p class="media-comment"><%=e.address.street%></p>
+                    <a class="btn btn-info btn-circle text-uppercase" href="/theater/<%=e._id%>/detail" id="reply"><span class="glyphicon glyphicon-share-alt"></span>Detail</a>
+                  </div>
+                </div>
+              </li>
+              <%});%>
+            <%}else{%>
+              <% if ((message) !== "undefined") { %>
+              <div class="error-message"><%= message%></div>
+              <% }
+            }%>
+            </ul>
+      </div>
+    </div>
+  </div>
