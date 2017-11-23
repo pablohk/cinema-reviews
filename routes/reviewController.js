@@ -113,11 +113,6 @@ router.get('/listByTheater/:id', [EnsureLoggedIn.EnsureLoggedIn,EnsureOwnerRevie
       .catch(e =>{next(e);});
 });
 
-
-
-
-
-
 router.get('/edit/:id',[EnsureLoggedIn.EnsureLoggedIn,EnsureOwnerReviewTheater],(req,res,next)=>{
   const id=req.params.id;
   Review.findById(id)

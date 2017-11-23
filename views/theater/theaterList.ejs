@@ -6,11 +6,11 @@
               <% if(typeof(items) !== 'undefined'){
                 items.forEach(e =>{%>
               <li class="media">
-                <a class="pull-left" href="/theater/<%=e._id%>/detail" title="View theater Detail">
-                  <img class="media-object img-circle" id="img-list" src="/img/teatro.png" alt="profile">
-                </a>
                 <div class="media-body">
                   <div class="well well-lg">
+                    <a class="pull-right" href="/theater/<%=e._id%>/detail" title="View theater Detail">
+                      <img class="media-object img-circle" id="img-list" src="/img/teatro.png" alt="profile">
+                    </a>
                     <h4 class="media-heading text-uppercase reviews"><%=e.name%> </h4>
                     <ul class="media-date text-uppercase reviews list-inline">
                       <li class="dd"><%=e.phone%></li>
@@ -18,6 +18,7 @@
                     <p class="media-comment"><%=e.address.street%></p>
                     <a class="btn btn-info btn-circle text-uppercase" href="/theater/<%=e._id%>/detail" id="reply"><span class="glyphicon glyphicon-share-alt"></span>Detail</a>
                     <a class="btn btn-warning btn-circle text-uppercase" href="/review/listByTheater/<%=e._id%>"><span class="glyphicon glyphicon-comment"></span>View Reviews</a>
+
                   </div>
                 </div>
               </li>
