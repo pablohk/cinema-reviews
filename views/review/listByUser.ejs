@@ -1,17 +1,45 @@
-<h2> List all reviews of username: <%=user.username%>.</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="table-container">
+          <table class="table table-filter">
+              <a href="/user/home"><span class="glyphicon glyphicon-arrow-left"></span> Return</span></a>
+            <tbody>
+              <%items.forEach( e=>{%>
+              <tr>
+                <td>
+                  <div class="media">
+                    <a href="/user/detail" class="pull-left" title="View user Detail">
+  													<img src="/img/photo.jpg" class="media-photo">
+  												</a>
+                    <div class="media-body">
+                    <p>Comments by:User: <%=e._user_id.username%> </p>
+                      <span class="media-meta pull-right"><%=e.updated_at%></span>
+                      <% if (typeof(e._cine_id) !== 'undefined'){%>
+                        <h4 class="title">Cine</h4>
+                        <h4 class="title"><%=e._cine_id.name%></h4>
+                      <%}%>
+                      <% if (typeof(e._theater_id) !== 'undefined'){%>
+                          <h4 class="title">Theater</h4>
+                          <h4 class"title"><%=e._theater_id.name%></h4>
+                      <%}%>
+                      <p class="summary"><%=e.comment%></p>
+                        <p class="summary">Ratinig  <%=e.rating%></p>
+                          <span class="media-meta pull-right">
+                            <a href="/review/edit/<%=e._id%>"><button>Edit</button></a>
+                            <a href="/review/delete/<%=e._id%>"><button>Delete</button></a>
+                          </span>
 
-<%items.forEach( e=>{%>
-<div>User: <%=e._user_id.username%></div>
-  <% if (typeof(e._cine_id) !== 'undefined'){%>
-      <div>Review to Cine: <%=e._cine_id.name%></div>
-  <%}%>
-  <% if (typeof(e._theater_id) !== 'undefined'){%>
-      <div>Review to Theater: <%=e._theater_id.name%></div>
-  <%}%>
-  <div>Comment : <%=e.comment%></div>
-  <div>Rating : <%=e.rating%></div>
-  <div>
-    <a href="/review/edit/<%=e._id%>"><button>Edit</button></a>
-    <a href="/review/delete/<%=e._id%>"><button>Delete</button></a>
+                    </div>
+                    <div>
+                  </div>
+                  </div>
+                </td>
+              </tr>
+                <%});%>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
-  <%});%>

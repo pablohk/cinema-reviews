@@ -1,11 +1,12 @@
   <div class="container">
-    <div class="row">
-      <div class="col-sm-10 col-sm-offset-1" id="logout">
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-1" id="logout">
+            <a href="/user/home" class="return-page"><span class="glyphicon glyphicon-arrow-left"></span> Return</span></a>
             <ul class="media-list">
               <% if(typeof(items) !== 'undefined'){
                 items.forEach(e =>{%>
               <li class="media">
-                <a class="pull-left" href="/theater/<%=e._id%>/detail">
+                <a class="pull-left" href="/theater/<%=e._id%>/detail" title="View theater Detail">
                   <img class="media-object img-circle" id="img-list" src="/img/teatro.png" alt="profile">
                 </a>
                 <div class="media-body">
@@ -16,6 +17,7 @@
                     </ul>
                     <p class="media-comment"><%=e.address.street%></p>
                     <a class="btn btn-info btn-circle text-uppercase" href="/theater/<%=e._id%>/detail" id="reply"><span class="glyphicon glyphicon-share-alt"></span>Detail</a>
+                    <a class="btn btn-warning btn-circle text-uppercase" href="/review/listByTheater/<%=e._id%>"><span class="glyphicon glyphicon-comment"></span>View Reviews</a>
                   </div>
                 </div>
               </li>
