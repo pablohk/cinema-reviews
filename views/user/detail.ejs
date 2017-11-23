@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-offset-3 col-sm-6" style="padding-top:40px">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" name="username" class="form-control" value="<%=item.name%>" readonly="readonly">
+        </div>
+        <div class="form-group">
+          <label for="name">name</label>
+          <input type="text" name="name" class="form-control" value="<%=item.name%>" readonly="readonly">
+        </div>
+        <div class="form-group">
+          <label for="name">mail</label>
+          <input type="email" name="mail" class="form-control" value="<%=item.mail%>" readonly="readonly">
+        </div>
+        <div class="form-group">
+          <label for="addres">address</label>
+          <input type="text" name="address" class="form-control" value="<%=item.address%>" readonly="readonly">
+        </div>
+      <a href="/review/listByUser">Return -----> </button>
+    </div>
+  </div>
+  <% if (typeof(message) !== "undefined") { %>
+  <div class="error-message"><%= message%></div>
+  <% } %>
+</div>

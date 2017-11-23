@@ -36,6 +36,14 @@ router.get('/logout', ensureLoggedIn('/user/login'), (req,res)=>{
   res.redirect('/');
 });
 
+router.get('/detail',ensureLoggedIn('/user/login'), (req,res,next)=>{
+  User.findById(req.user._id)
+  .then( (item)=>{
+    console.log(item);
+    res.render('user/detail', {item});})
+  .catch ( (e)=> next(e));
+});
+
 router.get('/edit',ensureLoggedIn('/user/login'), (req,res,next)=>{
   User.findById(req.user._id)
   .then( (item)=>{

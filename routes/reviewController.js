@@ -91,6 +91,33 @@ router.get('/listByUser', [EnsureLoggedIn.EnsureLoggedIn,EnsureOwnerReviewTheate
           .catch(e =>{next(e);});
   });
 
+router.get('/listByCine/:id', [EnsureLoggedIn.EnsureLoggedIn,EnsureOwnerReviewTheater],(req, res) => {
+    Review.find({'_cine_id':{$eq:req.params.id}})
+            .populate('_user_id')
+            .populate('_cine_id')
+            .then( rev => {
+              console.log(rev);
+              res.render('review/listByLocal',{items:rev});
+            })
+            .catch(e =>{next(e);});
+    });
+
+router.get('/listByTheater/:id', [EnsureLoggedIn.EnsureLoggedIn,EnsureOwnerReviewTheater],(req, res) => {
+    Review.find({'_theater_id':{$eq:req.params.id}})
+     .populate('_user_id')
+     .populate('_theater_id')
+     .then( rev => {
+          console.log(rev);
+          res.render('review/listByLocal',{items:rev});
+        })
+      .catch(e =>{next(e);});
+});
+
+
+
+
+
+
 router.get('/edit/:id',[EnsureLoggedIn.EnsureLoggedIn,EnsureOwnerReviewTheater],(req,res,next)=>{
   const id=req.params.id;
   Review.findById(id)
