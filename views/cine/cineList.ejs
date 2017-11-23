@@ -5,8 +5,9 @@
               <% if(typeof(items) !== 'undefined'){
                 items.forEach(e =>{%>
               <li class="media">
-                <a class="pull-left" href="#">
-                  <img class="media-object img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/dancounsell/128.jpg" alt="profile"></a>
+                <a class="pull-left" href="/cine/<%=e._id%>/detail">
+                  <img class="media-object img-circle" id="claqueta" src="/img/claqueta.jpg" alt="profile">
+                </a>
                 <div class="media-body">
                   <div class="well well-lg">
                     <h4 class="media-heading text-uppercase reviews"><%=e.name%> </h4>
