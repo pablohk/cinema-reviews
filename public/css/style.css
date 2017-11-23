@@ -8,10 +8,11 @@ body {
 a {
   color: #00B7FF;
 }
-#claqueta{
+#img-list{
   width: 128px;
   height: 128px;
 }
+
 .bckimg {
 background: url('../img/backgroundimg.jpg') no-repeat center center fixed;
 opacity : 0.8;
