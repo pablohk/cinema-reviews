@@ -1,3 +1,4 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
@@ -7,7 +8,9 @@ const Theater = require('../models/Theater');
 const Review = require ('../models/Review');
 const SERV = require('../models/services');
 
-mongoose.connect("mongodb://localhost/cinema-reviews",{useMongoClient: true});
+const dbURL = process.env.dbURL;
+mongoose.connect(dbURL, {useMongoClient: true})
+  .then(() => {debug(`Conected to ${dbURL}`);});
 
 // cine seed
 const cine = [
@@ -457,37 +460,13 @@ Cine.create(cine)
 .then((c)=>{
   c.forEach( e=>{
     console.log(e.name);});
+    Theater.create(theaters)
+    .then((t)=>{
+      t.forEach( e=>{
+        mongoose.connection.close();
+        console.log(e.name);});
+      })
+    .catch( (e)=>{next(e);});
+
     })
 .catch( (e)=>{next(e);});
-
-console.log('----------------------------');
-
-Theater.create(theaters)
-.then((t)=>{
-  t.forEach( e=>{
-    mongoose.connection.close();
-    console.log(e.name);});
-  })
-.catch( (e)=>{next(e);});
-
-
-
-
-
-// add cine to BBDD
-// Cine.create(cine, (err, item)=>{
-//   if (err) { throw err; }
-//     item.forEach( (e) => {
-//       console.log(e.name);
-//     });
-//     mongoose.connection.close();
-// 
-//
-// add theater to BBDD
-// Theater.create(theaters, (err, item)=>{
-//   if (err) { throw err; }
-//     item.forEach( (e) => {
-//       console.log(e.name);
-//     });
-//     mongoose.connection.close();
-// });
