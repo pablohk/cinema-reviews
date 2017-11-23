@@ -6,11 +6,11 @@
             <% if(typeof(items) !== 'undefined'){
                 items.forEach(e =>{%>
               <li class="media">
-                <a class="pull-left" href="/cine/<%=e._id%>/detail" title="View Cine Detail">
-                  <img class="media-object img-circle" id="img-list" src="/img/claqueta.jpg" alt="profile">
-                </a>
                 <div class="media-body">
                   <div class="well well-lg">
+                    <a class="pull-right" href="/cine/<%=e._id%>/detail" title="View Cine Detail">
+                      <img class="media-object img-circle" id="img-list" src="/img/claqueta.jpg" alt="profile">
+                    </a>
                     <h4 class="media-heading text-uppercase reviews"><%=e.name%> </h4>
                     <ul class="media-date text-uppercase reviews list-inline">
                       <li class="dd"><%=e.phone%></li>
