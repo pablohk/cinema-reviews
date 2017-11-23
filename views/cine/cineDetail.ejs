@@ -4,7 +4,7 @@
       <div>
         <p><%=item.address.province%></p>
         <p id ="town"><%=item.address.town%></p>
-        <p id ="address"><%=item.address.street%></p>
+        <p id ="address-input"><%=item.address.street%></p>
       </div>
       <div><%=item.phone%></div>
       <div><%=item.phone%></div>
@@ -20,6 +20,7 @@
       <div>
         <a href="/review/newRevCine/<%=item._id%>">Comment this Cine</a>
       </div>
+      <body onload="searchAddress();">
       <div id="map-canvas"></div>
   <%} else{%>
     <% if ((message) !== "undefined") { %>

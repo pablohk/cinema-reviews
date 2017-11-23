@@ -1,33 +1,35 @@
+/*
+ * Learning Google Maps Geocoding by example
+ * Miguel Marnoto
+ * 2015 - en.marnoto.com
+ *
+ */
 
 var map;
 var marker;
 
+
 function initialize() {
 
 	var mapOptions = {
-		center: new google.maps.LatLng(40.6,-2.3),
-		zoom: 7,
+		center: new google.maps.LatLng(40.680898,-8.684059),
+		zoom: 11,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
 
- var address1 = document.getElementById("address").value;
-
 	map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-searchAddress(address1);
-console.log(address1);
-}
 
+}
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
-function searchAddress(address1) {
 
-	var addressInput = address1;
+function searchAddress() {
 
-// document.getElementById('address').value
-
+	var addressInput = document.getElementById('address-input').innerHTML;
 	var geocoder = new google.maps.Geocoder();
-
+	console.log('------------- Entro en map.js');
+console.log(addressInput);
 	geocoder.geocode({address: addressInput}, function(results, status) {
 
 		if (status == google.maps.GeocoderStatus.OK) {
