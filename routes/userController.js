@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const passport =require ("passport");
-
+const User = require ('../models/User');
 const {ensureLoggedIn, ensureLoggedOut}= require('connect-ensure-login');
 
 
@@ -34,6 +34,26 @@ router.post('/signup', passport.authenticate('local-signup', {
 router.get('/logout', ensureLoggedIn('/user/login'), (req,res)=>{
   req.logout();
   res.redirect('/');
+});
+
+router.get('/edit',ensureLoggedIn('/user/login'), (req,res,next)=>{
+  User.findById(req.user._id)
+  .then( (item)=>{
+    console.log(item);
+    res.render('user/edit', {item});})
+  .catch ( (e)=> next(e));
+});
+
+router.post('/edit', ensureLoggedIn('/user/login'), (req,res,next)=>{
+  const update={
+    name:req.body.name,
+    username:req.body.username,
+    mail:req.body.mail,
+    address:req.body.address};
+
+  User.findByIdAndUpdate(req.user._id,update)
+    .then( ()=> res.redirect('/user/home'))
+    .catch( e=> next(e));
 });
 
 module.exports = router;
