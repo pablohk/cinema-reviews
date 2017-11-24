@@ -19,9 +19,9 @@ const cine = [
     address:{
           province : 'MADRID',
           town : 'ALCALA DE HRES',
-          street : 'CTRO. COMERC. CUADERNILLOS. CTRA.A-II. KM. 34.'
+          street : 'Avenida Quintapesares, 31'
         },
-    url: 'www.dehesacuad.es',
+    url: 'www.cinesladehesa.com',
     services : SERV[0],
     openingHours: '17-24',
     price: 7,
@@ -36,7 +36,7 @@ const cine = [
     address:{
           province : 'MADRID',
           town : 'ALCORCÓN',
-          street : 'C.C. TRES AGUAS. AVDA, DE AMÉRICA, 19'
+          street : 'Avenida San Martin de Valdeiglesias 24'
         },
     url:'www.yelmotresaguas.es',
     services : SERV[0],
@@ -87,7 +87,7 @@ const cine = [
     address:{
           province : 'MADRID',
           town : 'MADRID',
-          street : 'C.C. ALCALÁ NORTE . CL. ALCALA, 414'
+          street : 'Calle Nte, 414 Madrid'
         },
     url: 'www.cinesartesiete.com',
     services : SERV[2],
@@ -104,7 +104,7 @@ const cine = [
     address:{
           province : 'MADRID',
           town : 'MADRID',
-          street : 'CL DE LA PRINCESA, 3.'
+          street : 'Calle de la Princesa, 3.'
         },
     url: 'www.cinesprincesa.es',
     services : SERV[1],
@@ -206,7 +206,7 @@ const cine = [
     address:{
           province : 'MADRID',
           town : 'LEGANÉS',
-          street : 'C.CMERCIAL SAMBIL OUTLET'
+          street : 'Calle Mondragón esquina Av. de Euskadi'
         },
     url: 'www.cinesodeon.es',
     services : SERV[2],
@@ -274,7 +274,7 @@ const cine = [
     address:{
           province : 'MADRID',
           town : 'MADRID',
-          street : 'C.C ISLAZUL. CL. CALDERILLA, 1'
+          street : 'Calle Calderilla'
         },
     url: 'www.yelmocines.es',
     services : SERV[2],
@@ -291,7 +291,7 @@ const cine = [
     address:{
           province : 'MADRID',
           town : 'MADRID',
-          street : 'C.C. PLENILUNIO. CL. ARACNE, 3. GLORIETA EISENHOWER'
+          street : 'CL. ARACNE, 3. GLORIETA EISENHOWER'
         },
     url: 'www.yelmocines.es',
     services : SERV[2],
@@ -325,7 +325,7 @@ const cine = [
     address:{
           province : 'MADRID',
           town : 'S.S. DE LOS REYES',
-          street : 'C.C. PLAZA NORTE II, CTRA DE BURGOS SALIDA, 19'
+          street : 'CTRA DE BURGOS SALIDA, 19'
         },
     url: 'www.yelmocines.es',
     services : SERV[2],
@@ -342,7 +342,7 @@ const cine = [
     address:{
           province : 'MADRID',
           town : 'TRES CANTOS',
-          street : 'C.C. CIUDAD DE TRES CANTOS - AVDA. LABRADORES, 1'
+          street : 'AVDA. LABRADORES, 1'
         },
     url: 'www.cinesodeon.es',
     services : SERV[0],
@@ -359,7 +359,7 @@ const cine = [
     address:{
           province : 'MADRID',
           town : 'VALDEMORO',
-          street : 'C.C. EL RESTÓN. AVDA. MAR MEDITERRÁNEO, 3'
+          street : 'AVDA. MAR MEDITERRÁNEO, 3 Valdemoro'
         },
     url: 'www.cinesreston.es',
     services : SERV[2],
