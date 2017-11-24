@@ -9,9 +9,17 @@
               <tr>
                 <td>
                   <div class="media">
-                    <a href="/user/detail" class="pull-left" title="View user Detail">
-  													<img src="/img/photo.jpg" class="media-photo">
+
+                    <% if (typeof(e._cine_id) !== 'undefined'){%>
+                    <a href="/cine/<%=e._cine_id._id%>/detail" class="pull-left" title="View Cine Detail">
+  													<img src="/img/claqueta.jpg" id="img-list" class="media-photo">
   												</a>
+                    <%}%>
+                    <% if (typeof(e._theater_id) !== 'undefined'){%>
+                    <a href="/theater/<%=e._theater_id._id%>/detail"  class="pull-left" title="View Theater Detail">
+                            <img src="/img/teatro.png" id="img-list" class="media-photo">
+                          </a>
+                    <%}%>
                     <div class="media-body">
                     <p>Comments by:User: <%=e._user_id.username%> </p>
                       <span class="media-meta pull-right"><%=e.updated_at%></span>
