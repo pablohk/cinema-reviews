@@ -1,6 +1,18 @@
-<p>Welcome HOME falta el nombre del username</p>
+<!-- <p>Welcome HOME</p> -->
 
-<div><a href="/theater/list"><button>List Theaters</button></a></div>
-<div><a href="/cine/list"><button>List Cines</button></a></div>
-<div><a href="/review/listByUser"><button>List My reviews</button></a></div>
-<div><a href="/user/edit"><button>Edit profile</button></a></div>
+<div class="container">
+  <div class="page-header">
+    <h1>Welcome <%=user.name%></h1>
+  </div>
+  <div class="col-sm-offset-3 col-sm-6" style="margin-bottom : 20px">
+    <a href="/theater/list" class="btn btn-primary btn-lg btn-block btn-huge">List Theaters</a>
+  </div>
+
+  <div class="col-sm-offset-3 col-sm-6" style="margin-bottom : 20px">
+    <a href="/cine/list" class="btn btn-primary btn-lg btn-block btn-huge">List Cines</a>
+  </div>
+
+  <div class="col-sm-offset-3 col-sm-6" style="margin-bottom : 20px">
+    <a href="/review/listByUser" class="btn btn-primary btn-lg btn-block btn-huge">List My reviews</a>
+  </div>
+</div>

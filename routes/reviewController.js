@@ -80,18 +80,19 @@ router.post('/newRevTheater/:id',[EnsureLoggedIn.EnsureLoggedIn,EnsureOwnerRevie
 });
 
 
-router.get('/listByUser', [EnsureLoggedIn.EnsureLoggedIn,EnsureOwnerReviewTheater],(req, res) => {
+router.get('/listByUser', EnsureLoggedIn.EnsureLoggedIn,(req, res) => {
   Review.find({'_user_id':{$eq:req.user._id}})
           .populate('_user_id')
           .populate('_cine_id')
           .populate('_theater_id')
           .then( rev => {
+            console.log(rev);
             res.render('review/listByUser',{items:rev});
           })
           .catch(e =>{next(e);});
   });
 
-router.get('/listByCine/:id', [EnsureLoggedIn.EnsureLoggedIn,EnsureOwnerReviewTheater],(req, res) => {
+router.get('/listByCine/:id', EnsureLoggedIn.EnsureLoggedIn,(req, res) => {
     Review.find({'_cine_id':{$eq:req.params.id}})
             .populate('_user_id')
             .populate('_cine_id')
@@ -102,7 +103,7 @@ router.get('/listByCine/:id', [EnsureLoggedIn.EnsureLoggedIn,EnsureOwnerReviewTh
             .catch(e =>{next(e);});
     });
 
-router.get('/listByTheater/:id', [EnsureLoggedIn.EnsureLoggedIn,EnsureOwnerReviewTheater],(req, res) => {
+router.get('/listByTheater/:id', EnsureLoggedIn.EnsureLoggedIn,(req, res) => {
     Review.find({'_theater_id':{$eq:req.params.id}})
      .populate('_user_id')
      .populate('_theater_id')
