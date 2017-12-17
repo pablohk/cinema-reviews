@@ -1,7 +1,10 @@
+require('dotenv').config();
 const express = require('express');
 const router = express.Router();
 const Cine =  require ('../models/Cine');
 const {ensureLoggedIn, ensureLoggedOut}= require('connect-ensure-login');
+
+const APY_KEY=process.env.APY_KEY;
 
 router.get('/list', ensureLoggedIn('/user/login'), (req,res,next)=>{
   Cine.find()
@@ -13,7 +16,7 @@ router.get('/list', ensureLoggedIn('/user/login'), (req,res,next)=>{
 router.get('/:id/detail', ensureLoggedIn('/user/login'), (req,res,next)=>{
   const id =req.params.id;
   Cine.findById(id)
-    .then(item=>{res.render('cine/cineDetail', {item});})
+    .then(item=>{res.render('cine/cineDetail', {item, APY_KEY});})
     .catch(err=>{res.render('user/home',{message  : err.message});
   });
 });
