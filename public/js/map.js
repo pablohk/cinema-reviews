@@ -8,31 +8,32 @@
 var map;
 var marker;
 
+function initMap() {
 
-function initialize() {
-
-	var mapOptions = {
-		center: new google.maps.LatLng(40.680898,-8.684059),
-		zoom: 11,
-		mapTypeId: google.maps.MapTypeId.ROADMAP
-	};
-
-	map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+  const mapOptions = {
+    center: new google.maps.LatLng(40.380898, -3.684059),
+    zoom: 10,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  searchAddress();
+  map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
 }
-
-google.maps.event.addDomListener(window, 'load', initialize);
 
 
 function searchAddress() {
 
-	var addressInput = document.getElementById('address-input').innerHTML;
-	var geocoder = new google.maps.Geocoder();
-	console.log('------------- Entro en map.js');
-console.log(addressInput);
-	geocoder.geocode({address: addressInput}, function(results, status) {
+  let addressInput = document.getElementById('address-input').innerHTML;
+  let town = document.getElementById('town-input').innerHTML;
+  let address = addressInput.concat(' , ').concat(town);
 
-		if (status == google.maps.GeocoderStatus.OK) {
+  let geocoder = new google.maps.Geocoder();
+
+  geocoder.geocode({
+    address
+  }, function(results, status) {
+
+    if (status == google.maps.GeocoderStatus.OK) {
 
       var myResult = results[0].geometry.location;
 
@@ -41,20 +42,17 @@ console.log(addressInput);
       map.setCenter(myResult);
 
       map.setZoom(17);
-		}
-	});
+    }
+  });
 
 }
 
 function createMarker(latlng) {
 
-  if(marker != undefined && marker != ''){
+  if (marker != undefined && marker != '') {
     marker.setMap(null);
     marker = '';
   }
 
-  marker = new google.maps.Marker({
-    map: map,
-    position: latlng
-  });
+  marker = new google.maps.Marker({map: map, position: latlng});
 }
