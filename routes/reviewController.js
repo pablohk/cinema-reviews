@@ -22,7 +22,6 @@ const EnsureOwnerReviewCine = (req,res,next) =>{
       return next();
   })
   .catch(e => {
-    console.error(e);
     res.redirect('/cine/list');
   });
 };
@@ -42,7 +41,6 @@ const EnsureOwnerReviewTheater = (req,res,next) =>{
       return next();
   })
   .catch(e => {
-    console.error(e);
     res.redirect('/theater/list');
   });
 };
@@ -86,7 +84,6 @@ router.get('/listByUser', EnsureLoggedIn.EnsureLoggedIn,(req, res) => {
           .populate('_cine_id')
           .populate('_theater_id')
           .then( rev => {
-            console.log(rev);
             res.render('review/listByUser',{items:rev});
           })
           .catch(e =>{next(e);});
@@ -97,7 +94,6 @@ router.get('/listByCine/:id', EnsureLoggedIn.EnsureLoggedIn,(req, res) => {
             .populate('_user_id')
             .populate('_cine_id')
             .then( rev => {
-              console.log(rev);
               res.render('review/listByLocal',{items:rev});
             })
             .catch(e =>{next(e);});
@@ -108,7 +104,6 @@ router.get('/listByTheater/:id', EnsureLoggedIn.EnsureLoggedIn,(req, res) => {
      .populate('_user_id')
      .populate('_theater_id')
      .then( rev => {
-          console.log(rev);
           res.render('review/listByLocal',{items:rev});
         })
       .catch(e =>{next(e);});
@@ -131,14 +126,12 @@ router.post('/edit/:id',[EnsureLoggedIn.EnsureLoggedIn,EnsureOwnerReviewTheater]
     rating,
   };
 
-  console.log(update);
   Review.findByIdAndUpdate(id,update)
   .populate('_user_id')
   .populate('_cine_id')
   .populate('_theater_id')
   .then((item)=>
     {
-      console.log(item);
       res.redirect('/review/listByUser');})
     .catch(e=> next(e));
 });
