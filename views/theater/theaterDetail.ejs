@@ -13,10 +13,10 @@
                 <h5>Province: <%=item.address.province%></h5>
               </div>
               <div class="col-md-10 col-md-offset-1">
-                <h5> Town: <%=item.address.town%></h5>
+                <h5> Town: <span id="town-input"><%=item.address.town%></span></h5>
               </div>
               <div class="col-md-10 col-md-offset-1">
-                <h5 id="address-input">Address: <%=item.address.street%></h5>
+                <h5> Address: <span id="address-input"><%=item.address.street%></span></h5>
               </div>
               <div class="col-md-10 col-md-offset-1">
                 <h5>Phone <%=item.phone%></h2>
@@ -49,9 +49,7 @@
           <div class="text-center header">Map</div>
           <div class="panel-body text-center">
 
-            <body onload="searchAddress();">
-              <div id="map-canvas" class="map">
-              </div>
+              <div id="map-canvas" class="map"></div>
           </div>
         </div>
       </div>
@@ -66,7 +64,6 @@
     <% }
 }%>
 
-      <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
-
-      <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%=API_KEY%>"></script>
-      <script type="text/javascript" src="/js/map.js"></script>
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=<%=API_KEY%>&callback=initMap"></script>
+<script type="text/javascript" src="/js/map.js"></script>

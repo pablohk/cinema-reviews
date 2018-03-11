@@ -1,9 +1,8 @@
-require('dotenv').config();
 const express = require('express');
 const router = express.Router();
 const Theater =require('../models/Theater');
 
-const APY_KEY=process.env.APY_KEY;
+const API_KEY=process.env.API_KEY;
 
 router.get('/list', (req, res, next)=>{
   Theater.find()
@@ -15,7 +14,7 @@ router.get('/list', (req, res, next)=>{
 router.get('/:id/detail', (req,res,next)=>{
   const id =req.params.id;
   Theater.findById(id)
-    .then(item=>{res.render('theater/theaterDetail', {item, APY_KEY});})
+    .then(item=>{res.render('theater/theaterDetail', {item, API_KEY});})
     .catch(err=>{res.render('user/home',{message  : err.message});
   });
 });
