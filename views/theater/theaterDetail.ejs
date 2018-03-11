@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="well well-sm">
+        <form class="form-horizontal" method="post">
+          <fieldset>
+            <legend class="text-center header">Theater Details </legend>
+            <% if(typeof(item) !== 'undefined'){%>
+              <div class="col-md-10 col-md-offset-1">
+                <h4><%=item.name%></h4>
+              </div>
+              <div class="col-md-10 col-md-offset-1">
+                <h5>Province: <%=item.address.province%></h5>
+              </div>
+              <div class="col-md-10 col-md-offset-1">
+                <h5> Town: <span id="town-input"><%=item.address.town%></span></h5>
+              </div>
+              <div class="col-md-10 col-md-offset-1">
+                <h5> Address: <span id="address-input"><%=item.address.street%></span></h5>
+              </div>
+              <div class="col-md-10 col-md-offset-1">
+                <h5>Phone <%=item.phone%></h2>
+                </div>
+                  <div class="col-md-10 col-md-offset-1">
+                  <h5>Services: <%=item.services%></h5>
+              </div>
+              <div class="col-md-10 col-md-offset-1">
+                <h5>Opening Hours: <%=item.openingHours%></h5>
+              </div>
+              <div class="col-md-10 col-md-offset-1">
+                <h5>Price: <%=item.price%></h5>
+              </div>
+              <div class="col-md-10 col-md-offset-1">
+                <h5>Web Page: <a href='///<%=item.url%>'><%=item.url%></a></h5>
+              </div>
+              <div class="col-md-10 col-md-offset-1">
+                <h5>Seating: <%=item.seating%></h5>
+              </div>
+              <div class="col-md-10 col-md-offset-1" "btn-sm">
+                <h5><a href="/review/newRevTheater/<%=item._id%>"><button type="button" name="button">Comment this Theater</button></a></h5>
+              </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div>
+        <div class="panel panel-default">
+          <div class="text-center header">Map</div>
+          <div class="panel-body text-center">
+
+              <div id="map-canvas" class="map"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%} else{%>
+  <% if ((message) !== "undefined") { %>
+    <div class="error-message">
+      <%= message%>
+    </div>
+    <% }
+}%>
+
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=<%=API_KEY%>&callback=initMap"></script>
+<script type="text/javascript" src="/js/map.js"></script>

@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="table-container">
+    <% if ( items.length>0){
+         if (typeof(items[0]._cine_id) !== 'undefined'){%>
+        <a href="/cine/list"><span class="glyphicon glyphicon-arrow-left"></span> Return</span></a>
+      <%}%>
+      <% if (typeof(items[0]._theater_id) !== 'undefined'){%>
+        <a href="/theater/list"><span class="glyphicon glyphicon-arrow-left"></span> Return</span></a>
+      <%}%>
+
+        <table class="table table-filter">
+          <tbody>
+            <%items.forEach( e=>{%>
+            <tr>
+              <td>
+                <div class="media">
+                  <a href="/user/detail" class="pull-left">
+                      <img src="/img/photo.jpg" class="media-photo">
+                  </a>
+                  <div class="media-body">
+                  <p>Comments by:User: <%=e._user_id.username%> </p>
+                    <span class="media-meta pull-right"><%=e.updated_at%></span>
+                    <% if (typeof(e._cine_id) !== 'undefined'){%>
+                      <h4 class="title">Cine</h4>
+                      <h4 class="title"><%=e._cine_id.name%></h4>
+                    <%}%>
+                    <% if (typeof(e._theater_id) !== 'undefined'){%>
+                        <h4 class="title">Theater</h4>
+                        <h4 class"title"><%=e._theater_id.name%></h4>
+                    <%}%>
+                    <p class="summary"><%=e.comment%></p>
+                      <p class="summary">Rating  <%=e.rating%></p>
+                  </div>
+                  <div>
+                </div>
+                </div>
+              </td>
+            </tr>
+              <%});
+            }%>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
